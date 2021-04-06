@@ -1,5 +1,7 @@
-# Architecture
+Disclaimer: First version of this project was made by [Rafael Garcia](https://github.com/rafaelfgx/Architecture). 
 
+# Architecture
+ 
 ![](https://dev.azure.com/rafaelfgx/Architecture/_apis/build/status/Build)
 ![](https://img.shields.io/github/repo-size/rafaelfgx/Architecture?label=Size)
 
