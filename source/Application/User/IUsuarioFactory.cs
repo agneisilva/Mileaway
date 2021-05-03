@@ -5,6 +5,6 @@ namespace Architecture.Application
 {
     public interface IUsuarioFactory
     {
-        Usuario Create(UserModel model, Auth auth);
+        Usuario Create(UsuarioModel model, Auth auth);
     }
 }

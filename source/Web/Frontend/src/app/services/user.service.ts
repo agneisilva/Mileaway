@@ -10,17 +10,19 @@ export class AppUserService {
         private readonly http: HttpClient,
         private readonly gridService: GridService) { }
 
-    add = (user: User) => this.http.post<number>("users", user);
+    add = (user: User) => this.http.post<number>("user", user);
 
-    delete = (id: number) => this.http.delete(`users/${id}`);
+    delete(){
+        return this.http.delete("user");
+    }
 
-    get = (id: number) => this.http.get<User>(`users/${id}`);
+    get = (id: number) => this.http.get<User>(`user/${id}`);
 
-    grid = (parameters: GridParameters) => this.gridService.get<User>(`users/grid`, parameters);
+    grid = (parameters: GridParameters) => this.gridService.get<User>(`user/grid`, parameters);
 
-    inactivate = (id: number) => this.http.patch(`users/${id}/inactivate`, {});
+    inactivate = (id: number) => this.http.patch(`user/${id}/inactivate`, {});
 
-    list = () => this.http.get<User[]>("users");
+    list = () => this.http.get<User[]>("user");
 
-    update = (user: User) => this.http.put(`users/${user.id}`, user);
+    update = (user: User) => this.http.put(`user/${user.id}`, user);
 }

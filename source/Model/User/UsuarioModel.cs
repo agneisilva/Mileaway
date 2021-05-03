@@ -1,6 +1,6 @@
 namespace Architecture.Model
 {
-    public sealed record UserModel
+    public sealed record UsuarioModel
     {
         public long Id { get; init; }
 

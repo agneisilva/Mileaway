@@ -18,12 +18,12 @@ namespace Architecture.Database
             return Queryable.Where(UsuarioExpression.Id(id)).Select(UsuarioExpression.AuthId).SingleOrDefaultAsync();
         }
 
-        public Task<UserModel> GetModelAsync(long id)
+        public Task<UsuarioModel> GetModelAsync(long id)
         {
             return Queryable.Where(UsuarioExpression.Id(id)).Select(UsuarioExpression.Model).SingleOrDefaultAsync();
         }
 
-        public Task<Grid<UserModel>> GridAsync(GridParameters parameters)
+        public Task<Grid<UsuarioModel>> GridAsync(GridParameters parameters)
         {
             return Queryable.Select(UsuarioExpression.Model).GridAsync(parameters);
         }
@@ -33,7 +33,7 @@ namespace Architecture.Database
             return UpdatePartialAsync(user.Id, new { user.Status });
         }
 
-        public async Task<IEnumerable<UserModel>> ListModelAsync()
+        public async Task<IEnumerable<UsuarioModel>> ListModelAsync()
         {
             return await Queryable.Select(UsuarioExpression.Model).ToListAsync();
         }

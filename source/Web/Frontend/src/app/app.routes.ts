@@ -8,7 +8,21 @@ export const ROUTES: Routes = [
         path: "",
         component: AppLayoutComponent,
         children: [
+            { path: "", loadChildren: () => import("./pages/home/home.module").then((module) => module.AppHomeModule) }
+        ]
+    },
+    {
+        path: "signin",
+        component: AppLayoutComponent,
+        children: [
             { path: "", loadChildren: () => import("./pages/signin/signin.module").then((module) => module.AppSigninModule) }
+        ]
+    },
+    {
+        path: "signup",
+        component: AppLayoutComponent,
+        children: [
+            { path: "", loadChildren: () => import("./pages/signup/signup.module").then((module) => module.AppSignupModule) }
         ]
     },
     {
@@ -19,7 +33,8 @@ export const ROUTES: Routes = [
             { path: "files", loadChildren: () => import("./pages/main/files/files.module").then((module) => module.AppFilesModule) },
             { path: "form", loadChildren: () => import("./pages/main/form/form.module").then((module) => module.AppFormModule) },
             { path: "home", loadChildren: () => import("./pages/main/home/home.module").then((module) => module.AppHomeModule) },
-            { path: "list", loadChildren: () => import("./pages/main/list/list.module").then((module) => module.AppListModule) }
+            { path: "list", loadChildren: () => import("./pages/main/list/list.module").then((module) => module.AppListModule) }, 
+            { path: "perfil", loadChildren: () => import("./pages/perfil/perfil.module").then((module) => module.AppPerfilModule) }
         ]
     },
     {

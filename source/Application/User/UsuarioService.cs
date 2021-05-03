@@ -31,7 +31,7 @@ namespace Architecture.Application
             _usuarioRepository = userRepository;
         }
 
-        public async Task<IResult<long>> AddAsync(UserModel model)
+        public async Task<IResult<long>> AddAsync(UsuarioModel model)
         {
             var validation = new AddUserModelValidator().Validation(model);
 
@@ -63,12 +63,12 @@ namespace Architecture.Application
             return Result.Success();
         }
 
-        public Task<UserModel> GetAsync(long id)
+        public Task<UsuarioModel> GetAsync(long id)
         {
             return _usuarioRepository.GetModelAsync(id);
         }
 
-        public Task<Grid<UserModel>> GridAsync(GridParameters parameters)
+        public Task<Grid<UsuarioModel>> GridAsync(GridParameters parameters)
         {
             return _usuarioRepository.GridAsync(parameters);
         }
@@ -84,12 +84,12 @@ namespace Architecture.Application
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<UserModel>> ListAsync()
+        public async Task<IEnumerable<UsuarioModel>> ListAsync()
         {
             return await _usuarioRepository.ListModelAsync();
         }
 
-        public async Task<IResult> UpdateAsync(UserModel model)
+        public async Task<IResult> UpdateAsync(UsuarioModel model)
         {
             var validation = new UpdateUserModelValidator().Validation(model);
 

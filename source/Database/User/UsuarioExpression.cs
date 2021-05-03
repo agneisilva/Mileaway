@@ -9,7 +9,7 @@ namespace Architecture.Database
     {
         public static Expression<Func<Usuario, long>> AuthId => usuario => usuario.Auth.Id;
 
-        public static Expression<Func<Usuario, UserModel>> Model => usuario => new UserModel
+        public static Expression<Func<Usuario, UsuarioModel>> Model => usuario => new UsuarioModel
         {
             Id = usuario.Id,
             Nome = usuario.Name.PrimeiroNome,

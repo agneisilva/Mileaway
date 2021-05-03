@@ -4,6 +4,7 @@ using DotNetCore.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IdentityModel.Tokens.Jwt;
 
 Host.CreateDefaultBuilder().UseSerilog().Run<Startup>();
 
@@ -17,6 +18,7 @@ namespace Architecture.Web
             application.UseHttps();
             application.UseRouting();
             application.UseResponseCompression();
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             application.UseAuthentication();
             application.UseAuthorization();
             application.UseEndpoints();

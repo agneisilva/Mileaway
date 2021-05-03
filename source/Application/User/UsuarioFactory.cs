@@ -5,7 +5,7 @@ namespace Architecture.Application
 {
     public sealed class UsuarioFactory : IUsuarioFactory
     {
-        public Usuario Create(UserModel model, Auth auth)
+        public Usuario Create(UsuarioModel model, Auth auth)
         {
             return new Usuario
             (

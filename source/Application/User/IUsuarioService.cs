@@ -8,18 +8,18 @@ namespace Architecture.Application
 {
     public interface IUsuarioService
     {
-        Task<IResult<long>> AddAsync(UserModel model);
+        Task<IResult<long>> AddAsync(UsuarioModel model);
 
         Task<IResult> DeleteAsync(long id);
 
-        Task<UserModel> GetAsync(long id);
+        Task<UsuarioModel> GetAsync(long id);
 
-        Task<Grid<UserModel>> GridAsync(GridParameters parameters);
+        Task<Grid<UsuarioModel>> GridAsync(GridParameters parameters);
 
         Task InactivateAsync(long id);
 
-        Task<IEnumerable<UserModel>> ListAsync();
+        Task<IEnumerable<UsuarioModel>> ListAsync();
 
-        Task<IResult> UpdateAsync(UserModel model);
+        Task<IResult> UpdateAsync(UsuarioModel model);
     }
 }

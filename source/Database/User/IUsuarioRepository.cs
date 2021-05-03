@@ -11,12 +11,12 @@ namespace Architecture.Database
     {
         Task<long> GetAuthIdByUserIdAsync(long id);
 
-        Task<UserModel> GetModelAsync(long id);
+        Task<UsuarioModel> GetModelAsync(long id);
 
-        Task<Grid<UserModel>> GridAsync(GridParameters parametros);
+        Task<Grid<UsuarioModel>> GridAsync(GridParameters parametros);
 
         Task InactivateAsync(Usuario usuario);
 
-        Task<IEnumerable<UserModel>> ListModelAsync();
+        Task<IEnumerable<UsuarioModel>> ListModelAsync();
     }
 }

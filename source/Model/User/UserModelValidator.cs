@@ -2,7 +2,7 @@ using FluentValidation;
 
 namespace Architecture.Model
 {
-    public abstract class UserModelValidator : AbstractValidator<UserModel>
+    public abstract class UserModelValidator : AbstractValidator<UsuarioModel>
     {
         public void Id() => RuleFor(user => user.Id).NotEmpty();
 

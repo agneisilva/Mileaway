@@ -13,7 +13,7 @@ import { AppUserService } from "src/app/services/user.service";
 export class AppListGridComponent {
     filters = this.formBuilder.group({
         Id: new FormControl(),
-        FirstName: new FormControl(),
+        nome: new FormControl(),
         Email: new FormControl()
     });
 

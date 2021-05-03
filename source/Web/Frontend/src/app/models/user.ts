@@ -1,9 +1,13 @@
-import { SignIn } from "./signin";
+import { Auth } from "./auth";
 
 export class User {
     email!: string;
-    firstName!: string;
+    nome!: string;
     id!: number;
-    lastName!: string;
-    signin!: SignIn;
+    sobrenome!: string;
+    auth!: Auth;
+
+    public constructor(init?:Partial<User>) {
+        Object.assign(this, init);
+    }
 }

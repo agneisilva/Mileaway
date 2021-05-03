@@ -7,8 +7,8 @@
                     <app-input-text class="uk-text-center" formControlName="Id" text="Id"></app-input-text>
                 </th>
                 <th>
-                    <app-order [order]="grid.parameters.order" property="FirstName" text="FirstName" (changed)="load()"></app-order>
-                    <app-input-text formControlName="FirstName" text="FirstName"></app-input-text>
+                    <app-order [order]="grid.parameters.order" property="nome" text="Nome" (changed)="load()"></app-order>
+                    <app-input-text formControlName="Nome" text="Nome"></app-input-text>
                 </th>
                 <th>
                     <app-order [order]="grid.parameters.order" property="Email" text="Email" (changed)="load()"></app-order>
@@ -19,7 +19,7 @@
         <tbody>
             <tr *ngFor="let item of grid.list">
                 <td class="uk-text-center@m">{{ item?.id }}</td>
-                <td>{{ item?.firstName }}</td>
+                <td>{{ item?.nome }}</td>
                 <td>{{ item?.email }}</td>
             </tr>
         </tbody>
