@@ -2,9 +2,9 @@ using Architecture.Web;
 using DotNetCore.AspNetCore;
 using DotNetCore.Logging;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.IdentityModel.Tokens.Jwt;
 
 Host.CreateDefaultBuilder().UseSerilog().Run<Startup>();
 
@@ -12,13 +12,20 @@ namespace Architecture.Web
 {
     public sealed class Startup
     {
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         public void Configure(IApplicationBuilder application)
         {
             application.UseException();
             application.UseHttps();
             application.UseRouting();
             application.UseResponseCompression();
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            application.AddJwtConfiguration();
             application.UseAuthentication();
             application.UseAuthorization();
             application.UseEndpoints();
@@ -27,6 +34,8 @@ namespace Architecture.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAppSettings(Configuration);
+
             services.AddSecurity();
             services.AddResponseCompression();
             services.AddControllersMvcJsonOptions();

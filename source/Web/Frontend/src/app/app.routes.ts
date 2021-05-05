@@ -12,20 +12,6 @@ export const ROUTES: Routes = [
         ]
     },
     {
-        path: "signin",
-        component: AppLayoutComponent,
-        children: [
-            { path: "", loadChildren: () => import("./pages/signin/signin.module").then((module) => module.AppSigninModule) }
-        ]
-    },
-    {
-        path: "signup",
-        component: AppLayoutComponent,
-        children: [
-            { path: "", loadChildren: () => import("./pages/signup/signup.module").then((module) => module.AppSignupModule) }
-        ]
-    },
-    {
         path: "main",
         component: AppLayoutMainComponent,
         canActivate: [AppGuard],
@@ -35,6 +21,16 @@ export const ROUTES: Routes = [
             { path: "home", loadChildren: () => import("./pages/main/home/home.module").then((module) => module.AppHomeModule) },
             { path: "list", loadChildren: () => import("./pages/main/list/list.module").then((module) => module.AppListModule) }, 
             { path: "perfil", loadChildren: () => import("./pages/perfil/perfil.module").then((module) => module.AppPerfilModule) }
+        ]
+    },
+    {
+        path: "seguranca",
+        component: AppLayoutComponent,
+        children: [
+            { path: "logar", loadChildren: () => import("./pages/seguranca/signin/signin.module").then((module) => module.AppSigninModule) },
+            { path: "cadastrar", loadChildren: () => import("./pages/seguranca/signup/signup.module").then((module) => module.AppSignupModule) },
+            { path: "esqueci-minha-senha", loadChildren: () => import("./pages/seguranca/esqueceu-senha/esqueceu.senha.module").then((module) => module.AppEsqueceuSenhaModule) },
+            { path: "resetar-minha-senha", loadChildren: () => import("./pages/seguranca/resetar-senha/resetar.senha.module").then((module) => module.AppResetarSenhaModule) }
         ]
     },
     {

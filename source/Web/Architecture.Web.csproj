@@ -4,6 +4,12 @@
         <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     </PropertyGroup>
     <ItemGroup>
+      <Compile Remove="%2a%2a\**" />
+      <Content Remove="%2a%2a\**" />
+      <EmbeddedResource Remove="%2a%2a\**" />
+      <None Remove="%2a%2a\**" />
+    </ItemGroup>
+    <ItemGroup>
         <PackageReference Include="DotNetCore.AspNetCore" Version="14.2.0" />
         <PackageReference Include="DotNetCore.IoC" Version="14.2.0" />
         <PackageReference Include="DotNetCore.Logging" Version="14.2.0" />

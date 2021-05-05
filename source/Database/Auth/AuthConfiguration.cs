@@ -22,6 +22,8 @@ namespace Architecture.Database
 
             builder.Property(auth => auth.Salt).HasMaxLength(1000).IsRequired();
 
+            builder.Property(auth => auth.ResetToken).HasMaxLength(1000);
+
             builder.Property(auth => auth.Roles).IsRequired();
         }
     }

@@ -1,6 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { EsqueceuSenha } from "../models/esqueceu.senha";
+import { ResetarSenha } from "../models/resetar.senha";
+
 
 @Injectable({ providedIn: "root" })
 export class AppAuthService {
@@ -20,7 +23,7 @@ export class AppAuthService {
             });
     }
 
-    signin = () => this.router.navigate(["/login"]);
+    signin = () => this.router.navigate(["/seguranca/logar"]);
 
     signout() {
         localStorage.clear();
@@ -28,4 +31,12 @@ export class AppAuthService {
     }
 
     token = () => localStorage.getItem("token");
+
+    esqueceuSenha(model: EsqueceuSenha) {
+        return this.http.post("auths/esqueceu-senha", model);
+    }
+
+    resetarSenha(model: ResetarSenha) {
+        return this.http.post("auths/resetar-senha", model);
+    }
 }

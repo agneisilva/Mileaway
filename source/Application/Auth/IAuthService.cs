@@ -12,5 +12,9 @@ namespace Architecture.Application
         Task DeleteAsync(long id);
 
         Task<IResult<TokenModel>> SignInAsync(SignInModel model);
+
+        Task<IResult<bool>> EsqueceuSenhaAsync(EsqueceuSenhaModel model);
+
+        Task<IResult<Auth>> ResetarSenhaAsync(ResetarSenhaModel model);
     }
 }

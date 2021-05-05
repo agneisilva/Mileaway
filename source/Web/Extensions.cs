@@ -1,13 +1,16 @@
 using Architecture.Application;
 using Architecture.Database;
+using Architecture.Model.AppSettings;
 using DotNetCore.AspNetCore;
 using DotNetCore.EntityFrameworkCore;
 using DotNetCore.IoC;
 using DotNetCore.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Architecture.Web
 {
@@ -27,6 +30,11 @@ namespace Architecture.Web
             services.AddAuthenticationJwtBearer();
         }
 
+        public static void AddJwtConfiguration(this IApplicationBuilder application)
+        {
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+        }
+
         public static void AddServices(this IServiceCollection services)
         {
             services.AddFileExtensionContentTypeProvider();
@@ -42,6 +50,11 @@ namespace Architecture.Web
         public static void UseSpa(this IApplicationBuilder application)
         {
             application.UseSpaAngular("Frontend", "start", "http://localhost:4200");
+        }
+
+        public static void AddAppSettings(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddSingleton(configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
         }
     }
 }

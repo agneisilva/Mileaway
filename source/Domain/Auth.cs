@@ -24,11 +24,23 @@ namespace Architecture.Domain
 
         public string Salt { get; private set; }
 
+        public string ResetToken { get; private set; }
+
         public Roles Roles { get; private set; }
 
         public void UpdatePassword(string password)
         {
             Senha = password;
+        }
+
+        public void SetResetToken(string token)
+        {
+            ResetToken = token;
+        }
+
+        public void InvalidarResetToken()
+        {
+            ResetToken = null;
         }
     }
 }
