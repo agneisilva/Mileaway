@@ -1,0 +1,49 @@
+<h2>Transações</h2>
+
+<div class="uk-margin">
+    <app-button text="Registrar" (click)="set()"></app-button>
+    <!-- <app-button
+        class="uk-margin-left"
+        text="{{ disabled ? 'Enable' : 'Disable' }}"
+        (click)="disabled = !disabled"
+    ></app-button> -->
+</div>
+
+<form [formGroup]="form">
+    <fieldset class="uk-fieldset" [disabled]="disabled">
+        <div class="uk-margin">
+            <app-label for="numeroPaciente" text="Descrição"></app-label>
+            <app-input-text formControlName="numeroPaciente" text="Descrição"></app-input-text>
+        </div>
+        <div class="uk-margin">
+            <app-label for="userId" text="Tipo"></app-label>
+            <app-select-user
+                formControlName="userId"
+                [child]="post"
+                text="User"
+            ></app-select-user>
+        </div>
+        <div class="uk-margin">
+            <app-label for="postId" text="Opção"></app-label>
+            <app-select-post
+                formControlName="postId"
+                [child]="comment"
+                #post
+                text="Post"
+            ></app-select-post>
+        </div>
+        <div class="uk-margin">
+            <app-label for="commentId" text="Sub Opção"></app-label>
+            <app-select-comment
+                formControlName="commentId"
+                #comment
+                text="Comment"
+            ></app-select-comment>
+        </div>
+        <!-- 
+            <div class="uk-margin">
+            <pre>{{ this.form.value | json }}</pre>
+        </div> 
+        -->
+    </fieldset>
+</form>

@@ -19,8 +19,16 @@ export const ROUTES: Routes = [
             { path: "files", loadChildren: () => import("./pages/main/files/files.module").then((module) => module.AppFilesModule) },
             { path: "form", loadChildren: () => import("./pages/main/form/form.module").then((module) => module.AppFormModule) },
             { path: "home", loadChildren: () => import("./pages/main/home/home.module").then((module) => module.AppHomeModule) },
-            { path: "list", loadChildren: () => import("./pages/main/list/list.module").then((module) => module.AppListModule) }, 
+            { path: "list", loadChildren: () => import("./pages/main/list/list.module").then((module) => module.AppListModule) },
             { path: "perfil", loadChildren: () => import("./pages/perfil/perfil.module").then((module) => module.AppPerfilModule) }
+        ]
+    },
+    {
+        path: "cadastro",
+        component: AppLayoutMainComponent,
+        canActivate: [AppGuard],
+        children: [
+            { path: "cartao", loadChildren: () => import("./pages/cadastros/cartao/cartao.module").then((module) => module.AppFilesModule) },
         ]
     },
     {
